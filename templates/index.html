@@ -27,10 +27,12 @@
                   Ushbu portal orqali imkoniyatlar bilan tanishishingiz mumkin.
                 </p>
                 <ul>
-                  <li><i class="bi bi-check-circle"></i> Davlat va nomli stipendiyalar sovrindori bo'lish</li>
-                  <li><i class="bi bi-check-circle"></i>Mirzo Ulug'bek vorislari respublika tanloviga qatnashish </li>
+                  {% for chance in oportunities %}
+                  <li><i class="bi bi-check-circle"></i> <a href="{% url 'oportunities' %}">{{chance.name}}</a></li>
+                  {% endfor %}
+                  {% comment %} <li><i class="bi bi-check-circle"></i>Mirzo Ulug'bek vorislari respublika tanloviga qatnashish </li>
                   <li><i class="bi bi-check-circle"></i> Yoshlar daftariga kiruvchi talabalar uchun </li>
-                  <li><i class="bi bi-check-circle"></i> Talabalarga ijara shartnomalarini to'lab berish shartlari</li>
+                  <li><i class="bi bi-check-circle"></i> Talabalarga ijara shartnomalarini to'lab berish shartlari</li> {% endcomment %}
                 </ul>
                 <p>
                 Barcha imkoniyatlardan foydalanish uchun, qonuniy nizom bo'yicha shartlar bajarilishi kerak!

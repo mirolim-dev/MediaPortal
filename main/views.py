@@ -2,6 +2,7 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import get_object_or_404
 
 # from packages
 
@@ -12,8 +13,13 @@ from .models import News, Project, Oportunity
 # Create your views here.
 def home_view(request):
     """Bosh sahifa"""
+    oportunities = Oportunity.objects.all()
+    if oportunities.count() > 4:
+        oportunities = oportunities[-4:]
+    
     context = {
-        'active_section': 'home'
+        'active_section': 'home',
+        'oportunities': oportunities,
     }
     return render(request, 'index.html', context)
 
@@ -51,13 +57,15 @@ def projects_view(request):
     return render(request, 'projects.html', context)
 
 
-def oportunity_detail(request):
+def oportunity_detail(request, pk):
     """Imkoniyatlar haqida batafsil ko'rish
     pk = oportunity_id 
     """
+    oportunity = get_object_or_404(Oportunity, id=pk)
     context = {
-        'active_section': 'oportunity_detail'
-    }
+        'active_section': 'oportunity_detail',
+        'oportunity': oportunity,
+        }
     return render(request, 'oportunity_detail.html', context)
 
 
