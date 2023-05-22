@@ -17,103 +17,102 @@
       </div><!-- End Breadcrumbs -->
 
       <!-- ======= Courses Section ======= -->
-      <section id="courses" class="courses">
-        <div class="container" data-aos="fade-up">
+      {% for initial_list in projects %}
+        <section id="courses" class="courses">
+          <div class="container" data-aos="fade-up">
 
-          <div class="row" data-aos="zoom-in" data-aos-delay="100">
-
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-              <div class="course-item">
-                <img style="height: 237px;width: 800px" src="{% static 'images/loyixaa.png' %}" class="img-fluid" alt="...">
-                <div class="course-content">
-                  <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h4>Web Developer</h4>
-                    <!-- <p class="price"> Oyiga  $16</p>-->
-                  </div>
-
-                  <h3><a href="#">Lorem ipsum dolor sit amet.</a></h3>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    animi perspiciatis soluta provident quo numquam, repellendus culpa, quaerat, ex in?
-                    <br>
-                    Telefon: <a href="tel:+998930444544">+998 93 044 45 44</a></p>
-                  <div class="trainer d-flex justify-content-between align-items-center">
-                    <div class="trainer-profile d-flex align-items-center">
-                      <img  src="{% static 'images/dasturch2.jpg' %}" class="img-fluid" alt="">
-                      <span style="float: end !important;">Raximberdiyev Hasanboy</span>
+            <div class="row" data-aos="zoom-in" data-aos-delay="100">
+              {% for project in initial_list %}
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                  <div class="course-item">
+                    <img style="height: 237px;width: 800px" src="{{ project.image.url }}" class="img-fluid" alt="...">
+                    <div class="course-content">
+                      <a href="{% url 'project_detail' pk=project.id %}">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                          <h4>Batafsil ko'rish</h4>
+                          <!-- <p class="price"> Oyiga  $16</p>-->
+                        </div>
+                      </a>
+                      <h3><a href="#">{{ project.name }}</a></h3>
+                      <p>{{ project.shortly_description }}</p>
+                      <div class="trainer d-flex justify-content-between align-items-center">
+                        <div class="trainer-profile d-flex align-items-center">
+                          {% comment %} <img  src="{% static 'images/dasturch2.jpg' %}" class="img-fluid" alt=""> {% endcomment %}
+                          <span style="float: end !important;">Masul shaxs: <small>{{ project.responsible_person }}</small></span>
+                        </div>
+                      <!-- <div class="trainer-rank d-flex align-items-center">
+                          <i class="bx bx-user"></i>&nbsp;54
+                          &nbsp;&nbsp;
+                          <i class="bx bx-heart"></i>&nbsp;65
+                        </div>-->
+                      </div>
                     </div>
-                  <!-- <div class="trainer-rank d-flex align-items-center">
-                      <i class="bx bx-user"></i>&nbsp;54
-                      &nbsp;&nbsp;
-                      <i class="bx bx-heart"></i>&nbsp;65
-                    </div>-->
+                  </div>
+                </div> <!-- End Course Item-->
+              {% endfor %}
+              {% comment %} <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
+                <div class="course-item">
+                  <img style="height: 237px;width: 800px" src="{% static 'images/loyixaa.png' %}" class="img-fluid" alt="...">
+                  <div class="course-content">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                      <h4>Web Developer</h4>
+                      <!-- <p class="price">  Oyiga $25</p>-->
+                    </div>
+
+                    <h3><a href="#">Lorem ipsum dolor sit amet.</a></h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      animi perspiciatis soluta provident quo numquam, repellendus culpa, quaerat, ex in?
+                      <br>
+                      Telefon: <a href="tel:+998930444544">+998 93 044 45 44</a></p>
+                    <div class="trainer d-flex justify-content-between align-items-center">
+                      <div class="trainer-profile d-flex align-items-center">
+                        <img src="{% static 'images/dasturch2.jpg' %}" class="img-fluid" alt="">
+                        <span>  Raximberdiyev Hasanboy</span>
+                      </div>
+                    <!-- <div class="trainer-rank d-flex align-items-center">
+                        <i class="bx bx-user"></i>&nbsp;70
+                        &nbsp;&nbsp;
+                        <i class="bx bx-heart"></i>&nbsp;56
+                      </div>-->
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div> <!-- End Course Item-->
+              </div> <!-- End Course Item-->
 
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
-              <div class="course-item">
-                <img style="height: 237px;width: 800px" src="{% static 'images/loyixaa.png' %}" class="img-fluid" alt="...">
-                <div class="course-content">
-                  <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h4>Web Developer</h4>
-                    <!-- <p class="price">  Oyiga $25</p>-->
-                  </div>
-
-                  <h3><a href="#">Lorem ipsum dolor sit amet.</a></h3>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    animi perspiciatis soluta provident quo numquam, repellendus culpa, quaerat, ex in?
-                    <br>
-                    Telefon: <a href="tel:+998930444544">+998 93 044 45 44</a></p>
-                  <div class="trainer d-flex justify-content-between align-items-center">
-                    <div class="trainer-profile d-flex align-items-center">
-                      <img src="{% static 'images/dasturch2.jpg' %}" class="img-fluid" alt="">
-                      <span>  Raximberdiyev Hasanboy</span>
+              <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
+                <div class="course-item">
+                  <img style="height: 237px;width: 800px" src="{% static 'images/loyixaa.png' %}" class="img-fluid" alt="...">
+                  <div class="course-content">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                      <h4>Web Developer</h4>
+                      <!--  <p class="price"> Oyiga $20</p>-->
                     </div>
-                  <!-- <div class="trainer-rank d-flex align-items-center">
-                      <i class="bx bx-user"></i>&nbsp;70
-                      &nbsp;&nbsp;
-                      <i class="bx bx-heart"></i>&nbsp;56
-                    </div>-->
+
+                    <h3><a href="#">Lorem ipsum dolor sit amet.</a></h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      animi perspiciatis soluta provident quo numquam, repellendus culpa, quaerat, ex in?
+                      <br>
+                      Telefon: <a href="tel:+998930444544">+998 93 044 45 44</a></p>
+                    <div class="trainer d-flex justify-content-between align-items-center">
+                      <div class="trainer-profile d-flex align-items-center">
+                        <img src="{% static 'images/dasturch2.jpg' %}" class="img-fluid" alt="">
+                        <span>Raximberdiyev Hasanboy</span>
+                      </div>
+                    <!--  <div class="trainer-rank d-flex align-items-center">
+                        <i class="bx bx-user"></i>&nbsp;57
+                        &nbsp;&nbsp;
+                        <i class="bx bx-heart"></i>&nbsp;85
+                      </div>-->
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div> <!-- End Course Item-->
+              </div> <!-- End Course Item--> {% endcomment %}
 
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
-              <div class="course-item">
-                <img style="height: 237px;width: 800px" src="{% static 'images/loyixaa.png' %}" class="img-fluid" alt="...">
-                <div class="course-content">
-                  <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h4>Web Developer</h4>
-                    <!--  <p class="price"> Oyiga $20</p>-->
-                  </div>
-
-                  <h3><a href="#">Lorem ipsum dolor sit amet.</a></h3>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    animi perspiciatis soluta provident quo numquam, repellendus culpa, quaerat, ex in?
-                    <br>
-                    Telefon: <a href="tel:+998930444544">+998 93 044 45 44</a></p>
-                  <div class="trainer d-flex justify-content-between align-items-center">
-                    <div class="trainer-profile d-flex align-items-center">
-                      <img src="{% static 'images/dasturch2.jpg' %}" class="img-fluid" alt="">
-                      <span>Raximberdiyev Hasanboy</span>
-                    </div>
-                  <!--  <div class="trainer-rank d-flex align-items-center">
-                      <i class="bx bx-user"></i>&nbsp;57
-                      &nbsp;&nbsp;
-                      <i class="bx bx-heart"></i>&nbsp;85
-                    </div>-->
-                  </div>
-                </div>
-              </div>
-            </div> <!-- End Course Item-->
-
+            </div>
           </div>
-        </div>
-      </section><!-- End Courses Section -->
-
-      <section style="padding: 0;" id="courses" class="courses">
+        </section><!-- End Courses Section -->
+      {% endfor %}
+      {% comment %} <section style="padding: 0;" id="courses" class="courses">
         <div class="container" data-aos="fade-up">
 
           <div class="row" data-aos="zoom-in" data-aos-delay="100">
@@ -313,7 +312,7 @@
 
 
         </div>
-      </section>
+      </section> {% endcomment %}
 
 
 

@@ -8,7 +8,7 @@ from django.shortcuts import get_object_or_404
 
 # from local
 from .models import News, Project, Oportunity
-
+from .utils import get_nested_list_includes_triple_lists
 
 # Create your views here.
 def home_view(request):
@@ -27,35 +27,28 @@ def home_view(request):
 def oportunities_view(request):
     """Imkoniyatlar oynsi"""
     chances = Oportunity.objects.all()
-    # making nested list The list which is located inside of main list should include 3 objects
-    # because The design of webside requires that. 
-    # start handling neset list
-    list_chances = []
-    triple_chances = []
-    steps = 0
-    for chance in chances: 
-        steps += 1
-        triple_chances.append(chance)
-        if steps == 3:
-            list_chances.append(triple_chances)
-            steps = 0
-            triple_chances = []
-    if triple_chances != []:
-        list_chances.append(triple_chances)
-    # finish handling nested list
     context = {
         'active_section': 'oportunities',
-        'list_chances': list_chances,
+        'list_chances': get_nested_list_includes_triple_lists(chances),
     }
     return render(request, 'oportunities1.html', context)
 
 def projects_view(request):
     """Loyihalar oynasi"""
+    projects = Project.objects.all()    
     context = {
-        'active_section': 'projects'
+        'active_section': 'projects',
+        'projects': get_nested_list_includes_triple_lists(projects),
     }
     return render(request, 'projects.html', context)
 
+
+def project_detail(request, pk:int):
+    project = get_object_or_404(Project, id=pk)
+    context = {
+        'project': project,
+    }
+    return render(request, 'project_detail.html', context)
 
 def oportunity_detail(request, pk):
     """Imkoniyatlar haqida batafsil ko'rish
