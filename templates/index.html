@@ -1,0 +1,275 @@
+{% extends 'main/base.html' %}
+{% load static %}
+<DOCTYPE html>
+<html lang="en">
+<body>
+    {% block content %}
+      <section id="hero" class="d-flex justify-content-center align-items-center">
+        <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
+          <h2>Oliy ta'lim muassasalarida ma'naviy-ma'rifiy ishlar samaradorligini oshirish
+          </h2><br>
+          <h1>Media <br>Portal</h1>
+        
+          <a href="contact.html" class="btn-get-started">Bog'lanish</a>
+        </div>
+      </section>  
+      <main id="main">
+        <section id="about" class="about">
+          <div class="container" data-aos="fade-up">
+
+            <div class="row">
+              <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
+                <img src="{% static 'assets/img/imkoniyat.png' %}" class="img-fluid" alt="">
+              </div>
+              <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
+                <h3>Samaradorlik uchun umumiy imkoniyatlar</h3>
+                <p class="fst-italic">
+                  Ushbu portal orqali imkoniyatlar bilan tanishishingiz mumkin.
+                </p>
+                <ul>
+                  <li><i class="bi bi-check-circle"></i> Davlat va nomli stipendiyalar sovrindori bo'lish</li>
+                  <li><i class="bi bi-check-circle"></i>Mirzo Ulug'bek vorislari respublika tanloviga qatnashish </li>
+                  <li><i class="bi bi-check-circle"></i> Yoshlar daftariga kiruvchi talabalar uchun </li>
+                  <li><i class="bi bi-check-circle"></i> Talabalarga ijara shartnomalarini to'lab berish shartlari</li>
+                </ul>
+                <p>
+                Barcha imkoniyatlardan foydalanish uchun, qonuniy nizom bo'yicha shartlar bajarilishi kerak!
+                </p>
+
+              </div>
+            </div>
+
+          </div>
+        </section>
+        <section id="counts" class="counts section-bg">
+          <div class="container">
+            <div class="row counters">
+              <div class="col-lg-3 col-6 text-center">
+                <span data-purecounter-start="0" data-purecounter-end="101" data-purecounter-duration="1" class="purecounter"></span>
+                <p>O'qituvchilar</p>
+              </div>
+              <div class="col-lg-3 col-6 text-center">
+                <span data-purecounter-start="0" data-purecounter-end="3456" data-purecounter-duration="1" class="purecounter"></span>
+                <p>Talabalar</p>
+              </div>
+              <div class="col-lg-3 col-6 text-center">
+                <span data-purecounter-start="0" data-purecounter-end="82" data-purecounter-duration="1" class="purecounter"></span>
+                <p>Kurslar</p>
+              </div>
+              <div class="col-lg-3 col-6 text-center">
+                <span data-purecounter-start="0" data-purecounter-end="30" data-purecounter-duration="1" class="purecounter"></span>
+                <p>To'garaklar</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="why-us" class="why-us">
+          <div class="container" data-aos="fade-up">
+            <div class="row">
+              <div class="col-lg-4 d-flex align-items-stretch">
+                <div class="content">
+                  <h3>Lorem ipsum dolor sit....</h3>
+                  <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Id nulla commodi beatae praesentium quis modi? Culpa,
+                    obcaecati sequi. Repellat quasi quaerat dolore
+                  m, totam velit necessitatibus dolor cupiditate molestiae cum voluptate iusto, molestias labore temporibus aliquid?
+                  </p>
+                  <div class="text-center">
+                    <a href="about.html" class="more-btn">Batafsil o'qish <i class="bx bx-chevron-right"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-8 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                <div class="icon-boxes d-flex flex-column justify-content-center">
+                  <div class="row">
+                    <div class="col-xl-4 d-flex align-items-stretch">
+                      <div class="icon-box mt-4 mt-xl-0">
+                        <i class="bx bx-receipt"></i>
+                        <h4>Fan bo'yicha har xil musobaqalar</h4>
+                        <p>Bu Portalda barcha kurslar bo'yicha turli xil musobaqalar bo'lib o'tadi</p>
+                      </div>
+                    </div>
+                    <div class="col-xl-4 d-flex align-items-stretch">
+                      <div class="icon-box mt-4 mt-xl-0">
+                        <i class="bx bx-cube-alt"></i>
+                        <h4>Aqlni charxlovchi o'yinlar</h4>
+                        <p>Dars vaqtida qisqacha aqlni charxlovchi mantiqiy mnemonikalar</p>
+                      </div>
+                    </div>
+                    <div class="col-xl-4 d-flex align-items-stretch">
+                      <div class="icon-box mt-4 mt-xl-0">
+                        <i class="bx bx-images"></i>
+                        <h4>Dasturlash...</h4>
+                        <p>Darslardan so'ng vaqtingizni bekor o'tkizmasligingiz uchun, robototexnika to'garaklari tashkil etilgan</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="popular-courses" class="courses">
+          <div class="container" data-aos="fade-up">
+            <div class="section-title">
+              <h2>Iqtidorli</h2>
+              <p>Iqtidorli Talabalar</p>
+            </div>
+            <div class="row" data-aos="zoom-in" data-aos-delay="100">
+
+              <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                <div class="course-item">
+                  <img  style="height: 237px;width: 800px" src="{% static 'images/loyixaa.png' %}" class="img-fluid" alt="...">
+                  <div class="course-content">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                      <h4>Grafik Dizayner</h4>
+                        </div>
+                    <h3><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing.</a></h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, similique nesciunt. Doloremque
+                      laudantium ipsa excepturi! Ea odit, officia sint voluptatum quaerat voluptas.
+
+                      Telefon: <a href="tel:+998916947786">+998 93 044 45 44</a></p>
+                    <div class="trainer d-flex justify-content-between align-items-center">
+                      <div class="trainer-profile d-flex align-items-center">
+                        <img src="{% static 'images/dasturch2.jpg' %}" class="img-fluid" alt="">
+                        <span>Nabijonov Ravshanbek</span>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div> <!-- End Course Item-->
+
+              <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
+                <div class="course-item">
+                  <img style="height: 237px;width: 800px" src="{% static 'images/loyixa2.png' %}" class="img-fluid" alt="...">
+                  <div class="course-content">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                      <h4>Marketing</h4>
+                    <!-- <p class="price">  Oyiga $25</p>-->
+                    </div>
+
+                    <h3><a href="#">Lorem, ipsum dolor sit amet consectetur adipisicing.</a></h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime perferendis dolorem soluta aut amet ratione dicta ullam magni animi ipsa? Eius!
+
+                      <br>  Telefon: <a href="tel:+998913434534">+998 93 044 45 44</a></p>
+                    <div class="trainer d-flex justify-content-between align-items-center">
+                      <div class="trainer-profile d-flex align-items-center">
+                        <img src="{% static 'images/dasturch2.jpg' %}" class="img-fluid" alt="">
+                        <span> Xurshid</span>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div> <!-- End Course Item-->
+
+              <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
+                <div class="course-item">
+                  <img  style="height: 237px;width: 800px" src="{% static 'images/loyixa3.png' %}" class="img-fluid" alt="...">
+                  <div class="course-content">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                      <h4>Developer</h4>
+                    <!--  <p class="price"> Oyiga $20</p>-->
+                    </div>
+
+                    <h3><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing.</a></h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, repudiandae? Ex maiores facilis saepe quasi alias doloremque
+                      <br> <br>
+                      Telefon: <a href="tel:+998936497926">+998 93 044 45 44</a></p>
+                    <div class="trainer d-flex justify-content-between align-items-center">
+                      <div class="trainer-profile d-flex align-items-center">
+                        <img src="dasturch2.jpg" class="img-fluid" alt="">
+                        <span>Abduvosid</span>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div> <!-- End Course Item-->
+
+            </div>
+
+          </div>
+        </section><!-- End Popular Courses Section -->
+
+        <!-- ======= Trainers Section ======= -->
+        <section id="trainers" class="trainers">
+          <div class="container" data-aos="fade-up">
+
+            <div class="row" data-aos="zoom-in" data-aos-delay="100">
+              <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                <div class="member">
+                  <img style="height: 600px;width: 390px;" src="{% static 'images/ravshanbek1.png' %}" class="img-fluid" alt="">
+                  <div class="member-content">
+                    <h4>Nabijonov Ravshanbek</h4>
+                    <span>O'qituvchi</span>
+                    <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, repudiandae ipsum!
+                      <br>
+                      Telefon:<a href="tel:+998930444544">+998 93 044 45 44</a>
+                    </p>
+                    <div class="social">
+                      <a href=""><i class="bi bi-twitter"></i></a>
+                      <a href=""><i class="bi bi-facebook"></i></a>
+                      <a href=""><i class="bi bi-instagram"></i></a>
+                      <a href=""><i class="bi bi-linkedin"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                <div class="member">
+                  <img style="height: 600px;width: 390px;" src="{% static 'images/hasanboy.png' %}" class="img-fluid" alt="">
+                  <div class="member-content">
+                    <h4>Raximberdiyev Hasanboy</h4>
+                    <span> Web Developer</span>
+                    <p>
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit, saepe? Eaque.
+                      <br>
+                      Telefon: <a href="tel:+998940414041">+998 94 041 40 41</a>
+                    </p>
+                    <div class="social">
+                      <a href=""><i class="bi bi-twitter"></i></a>
+                      <a href=""><i class="bi bi-facebook"></i></a>
+                      <a href=""><i class="bi bi-instagram"></i></a>
+                      <a href=""><i class="bi bi-linkedin"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                <div class="member">
+                  <img style="height: 600px;width: 390px;" src="{% static 'images/xurshidjon.png' %}" class="img-fluid" alt="">
+                  <div class="member-content">
+                    <h4>Abdumutaliyev Xurshidbek </h4>
+                    <span>Grafik Dizayner</span>
+                    <p>
+                      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et, quia omnis!
+                      <br>
+                      Telefon:<a href="tel:+998975027200">+998 97 502 72 00</a>
+                    
+                    </p>
+                    <div class="social">
+                      <a href=""><i class="bi bi-twitter"></i></a>
+                      <a href=""><i class="bi bi-facebook"></i></a>
+                      <a href=""><i class="bi bi-instagram"></i></a>
+                      <a href=""><i class="bi bi-linkedin"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </section><!-- End Trainers Section -->
+
+      </main><!-- End #main -->
+    {% endblock content %}
+  
+</body>
+
+</html>

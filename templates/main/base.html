@@ -1,0 +1,25 @@
+{% load static %}
+
+{% block head %}
+    {% include 'main/head.html' %}
+{% endblock head %}
+
+{% block body %}
+    {% block header %}
+        {% include 'main/header.html' %}
+    {% endblock header %}
+
+    {% block content %}
+    {% comment %} content section is here {% endcomment %}
+    {% endblock content %}
+
+    {% block footer %}
+        {% include 'main/footer.html' %}
+    {% endblock footer %}
+
+    {% block scripts %}
+        {% include 'main/js.html' %}
+    {% endblock scripts %}
+{% endblock body %}
+
+

@@ -1,0 +1,48 @@
+{% load static %}
+<header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+      <i style="font-size: 40px; color: #5fcf80;margin-bottom: 6px;margin-right: 5px" class=""></i> <h1 class="logo me-auto"><a href="index.html">Media Portal</a></h1>
+           <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          {% if active_section == 'home' %}
+            <li><a class="active" href="{% url 'home' %}">Bosh sahifa</a></li>
+          {% else %}
+            <li><a href="{% url 'home' %}">Bosh sahifa</a></li>
+          {% endif %}
+          {% if active_section == 'oportunities' %}
+            <li><a class="active" href="{% url 'oportunities' %}">Imkoniyatlar</a></li>
+          {% else %}
+            <li><a href="{% url 'oportunities' %}">Imkoniyatlar</a></li>
+          {% endif %}
+          {% if active_section == 'projects' %}
+            <li><a class="active" href="{% url 'projects' %}">Loyihalar</a></li>
+          {% else %}
+            <li><a href="{% url 'projects' %}">Loyihalar</a></li>
+          {% endif %}
+          {% if active_section == 'oportunity_detail' %}
+            {% comment %} <li><a href="yangi.html">Yangi</a></li> {% endcomment %}
+            <li><a class="active" href="{% url 'oportunity_detail' %}">Imkoniyat haqida Batafsil</a></li>
+          {% else %}
+            <li><a href="{% url 'oportunity_detail' %}">Imkoniyat haqida Batafsil</a></li>
+          {% endif %}
+          {% if active_section == 'best_students' %}
+            <li><a class="active" href="{% url 'best_students' %}">Iqtidorli Talabalar</a></li>
+          {% else %}
+            <li><a href="{% url 'best_students' %}">Iqtidorli Talabalar</a></li>
+          {% endif %}
+          {% if active_section == 'news' %}
+            <li><a class="active" href="{% url 'news' %}">Yangiliklar</a></li>
+          {% else %}
+            <li><a href="{% url 'news' %}">Yangiliklar</a></li>
+          {% endif %}
+          {% if active_section == 'contact' %}
+            <li><a class="active" href="{% url 'contact' %}">Bog'lanish</a></li>
+          {% else %}
+            <li><a href="{% url 'contact' %}">Bog'lanish</a></li>
+          {% endif %}
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
+       
+    </div>
+  </header>
