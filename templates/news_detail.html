@@ -1,0 +1,52 @@
+{% extends 'main/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+  {% block content %}
+    <main id="main" data-aos="fade-in">
+
+      <!-- ======= Breadcrumbs ======= -->
+      <div class="breadcrumbs">
+        <div class="container">
+          <h2>{{ news.name }}</h2>
+          <p style="font-size: 18px">{{ news.shortly_description }}</p>
+        </div>
+      </div><!-- End Breadcrumbs -->
+   
+      <!-- ======= About Section ======= -->
+      <section id="about" class="about">
+        <div class="container" data-aos="fade-up">
+
+          {% comment %} <div class="row">
+            <div class="col-lg-12 order-2 order-lg-1" data-aos="fade-left" data-aos-delay="100">
+              <img src="{{ news.image.url }}" class="img-fluid" alt="">
+            </div>
+            <div class="col-lg-12 pt-4 pt-lg-0 order-1 order-lg-2 content">
+              <h3>{{ news.name | truncatewords:3 }}</h3>
+              {{ news.description | safe }}
+
+            </div> {% endcomment %}
+            <div class="row">
+              <div class="col-lg-12 order-2 order-lg-1" data-aos="fade-left" data-aos-delay="100">
+                <img src="{{ news.image.url }}" class="img-fluid" alt="">
+              </div>
+              <div class="col-lg-12 pt-4 pt-lg-0 order-2 order-lg-1 content">
+                <h3>{{ news.name | truncatewords:3 }}</h3>
+                {{ news.description | safe }}
+  
+              </div>
+          </div>
+
+        </div>
+      </section>
+
+
+
+    </main><!-- End #main -->
+  {% endblock content %}
+
+</body>
+
+</html>

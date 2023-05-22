@@ -20,24 +20,26 @@
         <div class="container" data-aos="fade-up">
 
           <div class="row">
-            <div class="col-md-6 d-flex align-items-stretch">
-              <div class="card">
-                <div class="card-img">
-                  <img src="yangiliklar_2022-02-16_11-24-43.jpg" alt="...">
-                </div>
-                <div class="card-body">
-                  <h5 class="card-title"><a href="">Diqqat dasturlash musobaqasi</a></h5>
-                  <p class="fst-italic text-center">Filialimiz talabalari uchun dasturlash bo'yicha musobaqa tashkillanmoqda!  <br>Musobaqa 3 bosqichda: <br>
-                    ✅ 1-bosqich: online saralash bosqichi; <br>
-                    ✅ 2-bosqich: ikkinchi online saralash bosqichi;<br>
-                    ✅ 3-bosqich: saralash bosqichidan o'tgan ishtirokchilar offline final boshqichiga o'tadi.</p>
-                  <p class="card-text">
-                    
-                  </p>
+            {% for data in news %}
+              <div class="col-md-6 d-flex align-items-stretch">
+                <div class="card">
+                  <div class="card-img">
+                    <img src="{{ data.image.url }}" alt="...">
+                  </div>
+                  <div class="card-body">
+                    <h5 class="card-title"><a href="{% url 'detail_news' pk=data.id %}">{{ data.name }}</a></h5>
+                    <p class="fst-italic text-center"></p>
+                    <p class="card-text">
+                      {{ data.shortly_description }}
+                    </p>
+                    <small><b>Uploaded at: </b>{{ data.created_at }}</small><br>
+                    <small><b>Uploaded by: </b>{{ data.uploaded_by }}</small><br>
+                    <small><b>Views: </b>{{ data.get_number_of_views }}</small>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="col-md-6 d-flex align-items-stretch">
+            {% endfor %}
+            {% comment %} <div class="col-md-6 d-flex align-items-stretch">
               <div class="card">
                 <div class="card-img">
                   <img src="920__95_2401657905.jpg" alt="...">
@@ -101,7 +103,7 @@
                 </div>
               </div>
 
-            </div>
+            </div> {% endcomment %}
           </div>
 
         </div>

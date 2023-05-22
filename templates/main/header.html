@@ -19,12 +19,6 @@
           {% else %}
             <li><a href="{% url 'projects' %}">Loyihalar</a></li>
           {% endif %}
-          {% if active_section == 'oportunity_detail' %}
-            {% comment %} <li><a href="yangi.html">Yangi</a></li> {% endcomment %}
-            <li><a class="active" href="#">Dashboard</a></li>
-          {% else %}
-            <li><a href="#">Dashboard</a></li>
-          {% endif %}
           {% if active_section == 'best_students' %}
             <li><a class="active" href="{% url 'best_students' %}">Iqtidorli Talabalar</a></li>
           {% else %}
@@ -40,6 +34,7 @@
           {% else %}
             <li><a href="{% url 'contact' %}">Bog'lanish</a></li>
           {% endif %}
+          <li><a href="#">Dashboard</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav>

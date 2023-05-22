@@ -35,78 +35,14 @@
                       </a>
                       <h3><a href="#">{{ project.name }}</a></h3>
                       <p>{{ project.shortly_description }}</p>
-                      <div class="trainer d-flex justify-content-between align-items-center">
-                        <div class="trainer-profile d-flex align-items-center">
-                          {% comment %} <img  src="{% static 'images/dasturch2.jpg' %}" class="img-fluid" alt=""> {% endcomment %}
-                          <span style="float: end !important;">Masul shaxs: <small>{{ project.responsible_person }}</small></span>
-                        </div>
-                      <!-- <div class="trainer-rank d-flex align-items-center">
-                          <i class="bx bx-user"></i>&nbsp;54
-                          &nbsp;&nbsp;
-                          <i class="bx bx-heart"></i>&nbsp;65
-                        </div>-->
-                      </div>
+                      <small><b> Masul shaxs:</b> {{project.responsible_person}}</small>
+                      <br><small><b>uploaded at:</b> {{project.created_at}}</small>
+                      <br><small><b>Views:</b> {{project.get_number_of_views}}</small>
                     </div>
                   </div>
                 </div> <!-- End Course Item-->
               {% endfor %}
-              {% comment %} <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
-                <div class="course-item">
-                  <img style="height: 237px;width: 800px" src="{% static 'images/loyixaa.png' %}" class="img-fluid" alt="...">
-                  <div class="course-content">
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                      <h4>Web Developer</h4>
-                      <!-- <p class="price">  Oyiga $25</p>-->
-                    </div>
-
-                    <h3><a href="#">Lorem ipsum dolor sit amet.</a></h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      animi perspiciatis soluta provident quo numquam, repellendus culpa, quaerat, ex in?
-                      <br>
-                      Telefon: <a href="tel:+998930444544">+998 93 044 45 44</a></p>
-                    <div class="trainer d-flex justify-content-between align-items-center">
-                      <div class="trainer-profile d-flex align-items-center">
-                        <img src="{% static 'images/dasturch2.jpg' %}" class="img-fluid" alt="">
-                        <span>  Raximberdiyev Hasanboy</span>
-                      </div>
-                    <!-- <div class="trainer-rank d-flex align-items-center">
-                        <i class="bx bx-user"></i>&nbsp;70
-                        &nbsp;&nbsp;
-                        <i class="bx bx-heart"></i>&nbsp;56
-                      </div>-->
-                    </div>
-                  </div>
-                </div>
-              </div> <!-- End Course Item-->
-
-              <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
-                <div class="course-item">
-                  <img style="height: 237px;width: 800px" src="{% static 'images/loyixaa.png' %}" class="img-fluid" alt="...">
-                  <div class="course-content">
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                      <h4>Web Developer</h4>
-                      <!--  <p class="price"> Oyiga $20</p>-->
-                    </div>
-
-                    <h3><a href="#">Lorem ipsum dolor sit amet.</a></h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      animi perspiciatis soluta provident quo numquam, repellendus culpa, quaerat, ex in?
-                      <br>
-                      Telefon: <a href="tel:+998930444544">+998 93 044 45 44</a></p>
-                    <div class="trainer d-flex justify-content-between align-items-center">
-                      <div class="trainer-profile d-flex align-items-center">
-                        <img src="{% static 'images/dasturch2.jpg' %}" class="img-fluid" alt="">
-                        <span>Raximberdiyev Hasanboy</span>
-                      </div>
-                    <!--  <div class="trainer-rank d-flex align-items-center">
-                        <i class="bx bx-user"></i>&nbsp;57
-                        &nbsp;&nbsp;
-                        <i class="bx bx-heart"></i>&nbsp;85
-                      </div>-->
-                    </div>
-                  </div>
-                </div>
-              </div> <!-- End Course Item--> {% endcomment %}
+              
 
             </div>
           </div>

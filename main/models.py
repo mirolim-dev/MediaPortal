@@ -17,6 +17,7 @@ class News(models.Model):
         verbose_name = 'Yangilik'
         verbose_name_plural = "Yangiliklar"
     name = models.CharField(max_length=80, verbose_name='nomi')
+    shortly_description = models.TextField(max_length=200, verbose_name='qisqacha izoh')
     image = models.ImageField(upload_to='news/', verbose_name="rasm")
     description = RichTextUploadingField(verbose_name="Izoh")
     uploaded_by = models.CharField(max_length=60, verbose_name="Yuklovchi shaxs")

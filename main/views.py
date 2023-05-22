@@ -44,7 +44,10 @@ def projects_view(request):
 
 
 def project_detail(request, pk:int):
+    user = request.user
     project = get_object_or_404(Project, id=pk)
+    if user not in project.viewers.all():
+        project.viewers.add(user)
     context = {
         'project': project,
     }
@@ -62,20 +65,33 @@ def oportunity_detail(request, pk):
     return render(request, 'oportunity_detail.html', context)
 
 
+def news_view(request):
+    """Yangiliklar oynasi"""
+    news = News.objects.all().order_by('-created_at')
+    context = {
+        'active_section': 'news',
+        'news': news,
+    }
+    return render(request, 'news.html', context)
+
+
+def detail_news(request, pk:int):
+    user = request.user
+    news = get_object_or_404(News, id=pk)
+    if user not in news.viewers.all():
+        news.viewers.add(user)
+    context = {
+        'news': news,
+    }
+    return render(request, 'news_detail.html', context)
+
+
 def best_students_view(request):
     """Iqtidorli talabalar oynasi"""
     context = {
         'active_section': 'best_students'
     }
     return render(request, 'best_students.html', context)
-
-
-def news_view(request):
-    """Yangiliklar oynasi"""
-    context = {
-        'active_section': 'news'
-    }
-    return render(request, 'news.html', context)
 
 
 def contact_view(request):
