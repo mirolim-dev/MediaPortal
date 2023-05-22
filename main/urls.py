@@ -11,6 +11,4 @@ urlpatterns = [
     path('news/', news_view, name='news'),
     path('detail_news/<int:pk>/', detail_news, name='detail_news'),
     path('contact/', contact_view, name='contact'),
-    
-    path('best_students/', best_students_view, name='best_students'),
 ]

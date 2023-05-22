@@ -29,7 +29,7 @@ class BestStudent(models.Model):
     first_name = models.CharField(max_length=30, verbose_name='Ism')
     last_name = models.CharField(max_length=30, verbose_name='Familya')
     group = models.CharField(max_length=10, verbose_name='guruh')
-    shortly_description = models.CharField(max_length=60, verbose_name='qisqacha izoh')
+    shortly_description = models.TextField(max_length=250, verbose_name='qisqacha izoh')
     image = models.ImageField(upload_to='students/', verbose_name='rasm')
     description = RichTextUploadingField(verbose_name="Izoh")
     created_at = models.DateTimeField(auto_now_add=True)

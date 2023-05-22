@@ -3,49 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-{% comment %} <head>
-  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-          integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-          crossorigin="anonymous"></script>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-  <title>Media Portal</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
-
-  <!-- Favicons -->
-  <link href="assets/img/img_1.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-  <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
-
-  <!-- =======================================================
-  * Template Name: Mentor - v4.7.0
-  * Template URL: https://bootstrapmade.com/mentor-free-education-bootstrap-theme/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
-</head> {% endcomment %}
-
 <body>
-
 
   {% block content %}
     <main id="main" data-aos="fade-in">
@@ -53,223 +11,56 @@
       <!-- ======= Breadcrumbs ======= -->
       <div class="breadcrumbs">
         <div class="container">
-          <h2>IQTIDORLI TALABALAR</h2>
-          <p style="font-size: 18px">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil rerum a eveniet!
-            Sunt inventore quae perferendis veritatis tenetur dolorem maxime cum tempora? </p>
+          <h2>Iqtidorli Talabalar</h2>
+          <p style="font-size: 18px">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste aliquam beatae veniam cumque numquam, consequatur accusamus quisquam repellendus laboriosam.  </p>
         </div>
       </div><!-- End Breadcrumbs -->
 
-      <!-- ======= Trainers Section ======= -->
-    
+      <!-- ======= Courses Section ======= -->
+      {% for students in students_list %}
+        <section id="courses" class="courses">
+          <div class="container" data-aos="fade-up">
 
+            <div class="row" data-aos="zoom-in" data-aos-delay="100">
+              {% for student in students %}
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                  <div class="course-item">
+                    <img style="height: 237px;width: 800px" src="{{ student.image.url }}" class="img-fluid" alt="...">
+                    <div class="course-content">
+                      <a href="{% url 'student_detail' pk=student.id %}"><div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4>Batafsil Ko'rish</h4>
+                        <!-- <p class="price"> Oyiga  $16</p>-->
+                      </div></a>
 
-    <section style="padding: 0;" id="courses" class="courses">
-      <div class="container" data-aos="fade-up">
-
-        <div class="row" data-aos="zoom-in" data-aos-delay="100">
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-            <div class="course-item">
-              <img style="height: 237px;width: 800px" src="loyixa2.png" class="img-fluid" alt="...">
-              <div class="course-content">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                  <h4>Web Developer</h4>
-                  <!-- <p class="price"> Oyiga  $16</p>-->
-                </div>
-
-                <h3><a href="#"></a>Lorem, ipsum dolor.</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  animi perspiciatis soluta provident quo numquam, repellendus culpa, quaerat, ex in?
-                  <br>
-                  Telefon: <a href="tel:+998940414041">+998 93 044 45 44</a></p>
-                <div class="trainer d-flex justify-content-between align-items-center">
-                  <div class="trainer-profile d-flex align-items-center">
-                    <img src="raximberdiyev.jpg" class="img-fluid" alt="">
-                    <span>Raximberdiyev Hasanboy</span>
+                      <h3><a href="#">Guruh: {{ student.group }}</a></h3>
+                      <p>{{ student.shortly_description }}</p>
+                      <div class="trainer d-flex justify-content-between align-items-center">
+                        <div class="trainer-profile d-flex align-items-center">
+                          {% comment %} <img  src="{% static 'images/dasturch2.jpg' %}" class="img-fluid" alt=""> {% endcomment %}
+                          <span style="float: end !important;">{{ student.first_name }} {{ student.last_name }}</span>
+                        </div>
+                      <!-- <div class="trainer-rank d-flex align-items-center">
+                          <i class="bx bx-user"></i>&nbsp;54
+                          &nbsp;&nbsp;
+                          <i class="bx bx-heart"></i>&nbsp;65
+                        </div>-->
+                      </div>
+                    </div>
                   </div>
-                <!--  <div class="trainer-rank d-flex align-items-center">
-                    <i class="bx bx-user"></i>&nbsp;54
-                    &nbsp;&nbsp;
-                    <i class="bx bx-heart"></i>&nbsp;65
-                  </div>-->
-                </div>
-              </div>
+                </div> <!-- End Course Item-->
+              {% endfor %}  
+
             </div>
-          </div> <!-- End Course Item-->
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
-            <div class="course-item">
-              <img style="height: 237px;width: 800px" src="loyixa2.png" class="img-fluid" alt="...">
-              <div class="course-content">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                  <h4>Grafik Dizayner</h4>
-                  <!-- <p class="price">  Oyiga $25</p>-->
-                </div>
-
-                <h3><a href="#">Lorem, ipsum dolor.</a></h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  animi perspiciatis soluta provident quo numquam, repellendus culpa, quaerat, ex in?
-                  <br>
-                  Telefon: <a href="tel:+998940414041">+998 93 044 45 44</a></p>
-                <div class="trainer d-flex justify-content-between align-items-center">
-                  <div class="trainer-profile d-flex align-items-center">
-                    <img src="Xurshid.jpg" class="img-fluid" alt="">
-                    <span> Abdumutaliyev Xurshidbek</span>
-                  </div>
-                <!-- <div class="trainer-rank d-flex align-items-center">
-                    <i class="bx bx-user"></i>&nbsp;70
-                    &nbsp;&nbsp;
-                    <i class="bx bx-heart"></i>&nbsp;56
-                  </div>-->
-                </div>
-              </div>
-            </div>
-          </div> <!-- End Course Item-->
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
-            <div class="course-item">
-              <img style="height: 237px;width: 800px" src="loyixa2.png" class="img-fluid" alt="...">
-              <div class="course-content">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                  <h4>Islom Karimov</h4>
-                  <!--  <p class="price"> Oyiga $20</p>-->
-                </div>
-
-                <h3><a href="#">Lorem ipsum dolor sit.</a></h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  animi perspiciatis soluta provident quo numquam, repellendus culpa, quaerat, ex in?
-                  <br>
-                  Telefon: <a href="tel:+998940414041">+998 93 044 45 44</a></p>
-                <div class="trainer d-flex justify-content-between align-items-center">
-                  <div class="trainer-profile d-flex align-items-center">
-                    <img src="men.jpg" class="img-fluid" alt="">
-                    <span>Nabijonov Ravshanbek</span>
-                  </div>
-                <!--  <div class="trainer-rank d-flex align-items-center">
-                    <i class="bx bx-user"></i>&nbsp;57
-                    &nbsp;&nbsp;
-                    <i class="bx bx-heart"></i>&nbsp;85
-                  </div>-->
-                </div>
-              </div>
-            </div>
-          </div> <!-- End Course Item-->
-
-        </div>
+          </div>
+        </section><!-- End Courses Section -->
+      {% endfor %}
 
 
 
 
 
-      </div>
-    </section>
-    <section style="padding: 15px;" id="courses" class="courses">
-      <div class="container" data-aos="fade-up">
-
-        <div class="row" data-aos="zoom-in" data-aos-delay="100">
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-            <div class="course-item">
-              <img style="height: 237px;width: 800px" src="loyixa3.png" class="img-fluid" alt="...">
-              <div class="course-content">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                  <h4>Video Mantaj</h4>
-                  <!-- <p class="price"> Oyiga  $16</p>-->
-                </div>
-
-                <h3><a href="#">Lorem ipsum dolor sit.</a></h3>
-                <p>ALorem ipsum dolor sit amet consectetur adipisicing elit.
-                  animi perspiciatis soluta provident quo numquam, repellendus culpa, quaerat, ex in?gar siz o'z ona tilingizni bilmasangiz,bu yurtda yashashga noloyiqsiz.Agarda ona tili fanidan qo'shimcha darslarga qatnashmoqchi bo;lsangiz murojaat qilavering.
-                  <br>
-                  Telefon: <a href="tel:+998940414041">+998 94 041 40 41</a></p>
-                <div class="trainer d-flex justify-content-between align-items-center">
-                  <div class="trainer-profile d-flex align-items-center">
-                    <img src="Jamshid.jpg" class="img-fluid" alt="">
-                    <span>Xudoyiberdiyev Jamshid</span>
-                  </div>
-                <!-- <div class="trainer-rank d-flex align-items-center">
-                    <i class="bx bx-user"></i>&nbsp;54
-                    &nbsp;&nbsp;
-                    <i class="bx bx-heart"></i>&nbsp;65
-                  </div>-->
-                </div>
-              </div>
-            </div>
-          </div> <!-- End Course Item-->
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
-            <div class="course-item">
-              <img style="height: 237px;width: 800px" src="loyixa3.png" class="img-fluid" alt="...">
-              <div class="course-content">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                  <h4>Operator</h4>
-                  <!-- <p class="price">  Oyiga $25</p>-->
-                </div>
-
-                <h3><a href="#">Lorem ipsum dolor sit.</a></h3>
-                <p>ALorem ipsum dolor sit amet consectetur adipisicing elit.
-                  animi perspiciatis soluta provident quo numquam, repellendus culpa, quaerat, ex in?gar siz o'z ona tilingizni bilmasangiz,bu yurtda yashashga noloyiqsiz.Agarda ona tili fanidan qo'shimcha darslarga qatnashmoqchi bo;lsangiz murojaat qilavering.
-                  <br>
-                  Telefon: <a href="tel:+998940414041">+998 94 041 40 41</a></p>
-                <div class="trainer d-flex justify-content-between align-items-center">
-                  <div class="trainer-profile d-flex align-items-center">
-                    <img src="Husniddin.jpg" class="img-fluid" alt="">
-                    <span>Qosimov Husniddin</span>
-                  </div>
-                <!--  <div class="trainer-rank d-flex align-items-center">
-                    <i class="bx bx-user"></i>&nbsp;70
-                    &nbsp;&nbsp;
-                    <i class="bx bx-heart"></i>&nbsp;56
-                  </div>-->
-                </div>
-              </div>
-            </div>
-          </div> <!-- End Course Item-->
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
-            <div class="course-item">
-              <img  style="height: 237px;width: 800px" src="loyixa3.png" class="img-fluid" alt="...">
-              <div class="course-content">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                  <h4>Grafik Dizayner</h4>
-                  <!--  <p class="price"> Oyiga $20</p>-->
-                </div>
-
-                <h3><a href="#">Lorem ipsum dolor sit.</a></h3>
-                <p>ALorem ipsum dolor sit amet consectetur adipisicing elit.
-                  animi perspiciatis soluta provident quo numquam, repellendus culpa, quaerat, ex in?gar siz o'z ona tilingizni bilmasangiz,bu yurtda yashashga noloyiqsiz.Agarda ona tili fanidan qo'shimcha darslarga qatnashmoqchi bo;lsangiz murojaat qilavering.
-                  <br>
-                  Telefon: <a href="tel:+998940414041">+998 94 041 40 41</a></p>
-                <div class="trainer d-flex justify-content-between align-items-center">
-                  <div class="trainer-profile d-flex align-items-center">
-                    <img src="men.jpg" class="img-fluid" alt="">
-                    <span>Abdumutaliyev Xurshidbek</span>
-                  </div>
-                  <!--<div class="trainer-rank d-flex align-items-center">
-                    <i class="bx bx-user"></i>&nbsp;57
-                    &nbsp;&nbsp;
-                    <i class="bx bx-heart"></i>&nbsp;85
-                  </div>-->
-                </div>
-              </div>
-            </div>
-          </div> <!-- End Course Item-->
-
-        </div>
-
-
-
-
-
-
-
-
-
-
-      </main><!-- End #main -->
-    </section>
+    </main><!-- End #main -->
   {% endblock content %}
-
 </body>
 
 </html>

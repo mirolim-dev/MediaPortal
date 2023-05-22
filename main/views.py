@@ -85,15 +85,6 @@ def detail_news(request, pk:int):
     }
     return render(request, 'news_detail.html', context)
 
-
-def best_students_view(request):
-    """Iqtidorli talabalar oynasi"""
-    context = {
-        'active_section': 'best_students'
-    }
-    return render(request, 'best_students.html', context)
-
-
 def contact_view(request):
     context = {
         'active_section': 'contact'
