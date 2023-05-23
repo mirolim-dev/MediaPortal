@@ -1,6 +1,8 @@
 # from django
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, Group
+from django.dispatch import receiver
+from django.db.models.signals import post_save
 
 # from packages
 from ckeditor_uploader.fields import RichTextUploadingField, RichTextUploadingFormField
@@ -21,6 +23,16 @@ class Tuiter(models.Model):
     def __str__(self) -> str:
         return f"{self.user.first_name} {self.user.last_name}"
     
+    
+@receiver(post_save, sender=Tuiter)
+def manage_access(sender, instance, created, *args, **kwargs):
+    if created:
+        group = Group.objects.get(name='Tuiters')
+        tuiter = instance
+        user = tuiter.user
+        user.is_staff = True
+        user.groups.add(group)
+        user.save()
 
 class BestStudent(models.Model):
     class Meta:
@@ -39,4 +51,3 @@ class BestStudent(models.Model):
     
 
 
-    
