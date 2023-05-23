@@ -27,12 +27,15 @@ class Tuiter(models.Model):
 @receiver(post_save, sender=Tuiter)
 def manage_access(sender, instance, created, *args, **kwargs):
     if created:
-        group = Group.objects.get(name='Tuiters')
-        tuiter = instance
-        user = tuiter.user
-        user.is_staff = True
-        user.groups.add(group)
-        user.save()
+        try:
+            group = Group.objects.get(name='Tuiters')
+            tuiter = instance
+            user = tuiter.user
+            user.is_staff = True
+            user.groups.add(group)
+            user.save()
+        except:
+            pass
 
 class BestStudent(models.Model):
     class Meta:
