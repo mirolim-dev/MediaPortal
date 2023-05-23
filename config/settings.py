@@ -41,6 +41,7 @@ INSTALLED_APPS = [
      # my apps
     'main',
     'students_and_tuiters',
+    'authentication',
     
     # packages
     'ckeditor',

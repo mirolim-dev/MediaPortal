@@ -27,4 +27,5 @@ urlpatterns = [
     # my apps
     path('', include('main.urls')),
     path('students/', include('students_and_tuiters.urls')),
+    path('authentication/', include('authentication.urls')),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Form-v5 by Colorlib</title>
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- Font-->
+	<link rel="stylesheet" type="text/css" href="{% static 'colorib/css/roboto-font.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'colorib/fonts/font-awesome-5/css/fontawesome-all.min.css' %}">
+	<!-- Main Style Css -->
+    <link rel="stylesheet" href="{% static 'colorib/css/style.css' %}"/>
+</head>
+<body class="form-v5">
+	<div class="page-content">
+		<div class="form-v5-content">
+			<form class="form-detail" action="#" method="POST">
+				{% csrf_token %}
+				<h2>Account Yarating</h2>
+				{% if messages %}
+					{% for message in messages %}
+						{% if message.tags == 'error' %}
+							<small style="color:red;"><p>{{message}}</p></small>
+						{% endif %}
+					{% endfor %}
+				{% endif %}
+				
+				<div class="form-row">
+					<label for="full-name">Ism</label>
+					{{ form.first_name }}
+					<i class="fas fa-user"></i>
+				</div>
+				<div class="form-row">
+					<label for="full-name">Familya</label>
+					{{ form.last_name }}
+					<i class="fas fa-user"></i>
+				</div>
+				<div class="form-row">
+					<label for="full-name">Username</label>
+					{{ form.username }}
+					<i class="fas fa-user"></i>
+				</div>
+				<div class="form-row">
+					<label for="your-email">Email</label>
+					{{ form.email }}
+					<i class="fas fa-envelope"></i>
+				</div>
+				<div class="form-row">
+					<label for="password">Password1</label>
+					{{ form.password1 }}
+					<i class="fas fa-lock"></i>
+				</div>
+				<div class="form-row">
+					<label for="password">Password2</label>
+					{{ form.password2 }}
+					<i class="fas fa-lock"></i>
+				</div>
+				{% comment %} {{ form.as_p }} {% endcomment %}
+				<div class="form-row-last">
+					<input type="submit" name="register" class="register" value="Register">
+				</div>
+				<center><small>Allaqachon accountim bor <a href="{% url 'login' %}"><b>Login</b></a></small></center>
+			</form>
+		</div>
+	</div>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>
