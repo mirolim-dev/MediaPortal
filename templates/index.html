@@ -114,27 +114,44 @@
               <p>Media Bo'limi a'zolari</p>
             </div>
             <div class="row" data-aos="zoom-in" data-aos-delay="100">
-              {% for member in media_members %}
-                <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-                  <div class="course-item">
-                    <img  style="height: 237px;width: 800px" src="{{ member.image.url }}" class="img-fluid" alt="...">
-                    <div class="course-content">
-                      <div class="d-flex justify-content-between align-items-center mb-3">
-                        <h4>Batafsil Ko'rish</h4>
+              {% for members in media_members %}
+                <section id="courses" class="courses">
+                  <div class="container" data-aos="fade-up">
+
+                    <div class="row" data-aos="zoom-in" data-aos-delay="100">
+                      {% for member in members %}
+                        <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                          <div class="course-item">
+                            <img style="height: 237px;width: 800px" src="{{ member.image.url }}" class="img-fluid" alt="...">
+                            <div class="course-content">
+                              <a href="#"><div class="d-flex justify-content-between align-items-center mb-3">
+                                <h4>Batafsil Ko'rish</h4>
+                                <!-- <p class="price"> Oyiga  $16</p>-->
+                              </div></a>
+
+                              <h3><a href="#">Guruh: {{ member.group }}</a></h3>
+                              <p>{{ member.shortly_description }}</p>
+                              <div class="trainer d-flex justify-content-between align-items-center">
+                                <div class="trainer-profile d-flex align-items-center">
+                                  {% comment %} <img  src="{% static 'images/dasturch2.jpg' %}" class="img-fluid" alt=""> {% endcomment %}
+                                  <span style="float: end !important;">{{ member.first_name }} {{ member.last_name }}</span>
+                                </div>
+                              <!-- <div class="trainer-rank d-flex align-items-center">
+                                  <i class="bx bx-user"></i>&nbsp;54
+                                  &nbsp;&nbsp;
+                                  <i class="bx bx-heart"></i>&nbsp;65
+                                </div>-->
+                              </div>
+                            </div>
                           </div>
-                      <h3>Status: {{ member.status }}</h3>
-                      <p>{{ member.shortly_description }}
+                        </div> <!-- End Course Item-->
+                      {% endfor %}  
 
-                      <div class="trainer d-flex justify-content-between align-items-center">
-                        <div class="trainer-profile d-flex align-items-center">
-                          <span>{{ member.first_name }} {{ member.last_name }}</span>
-                        </div>
-
-                      </div>
                     </div>
                   </div>
-                </div> <!-- End Course Item-->
+                </section><!-- End Courses Section -->
               {% endfor %}
+
 
             </div>
 

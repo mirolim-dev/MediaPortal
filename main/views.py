@@ -23,7 +23,7 @@ def home_view(request):
     context = {
         'active_section': 'home',
         'oportunities': oportunities,
-        'media_members': media_members,
+        'media_members': get_nested_list_includes_triple_lists(media_members),
     }
     return render(request, 'index.html', context)
 
