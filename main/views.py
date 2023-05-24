@@ -1,8 +1,10 @@
 # from django
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404
+from django.core.mail import send_mail
+from django.contrib import messages
 
 # from packages
 
@@ -100,7 +102,38 @@ def detail_news(request, pk:int):
 
 @login_required(login_url='login')
 def contact_view(request):
+    user = request.user
+    if request.POST:
+        full_name = request.POST.get('full_name')
+        email = request.POST.get('email')
+        subject = "Sender: " + full_name + '|' + f'{email}'
+        message = request.POST.get('message')
+        try:
+            send_mail(subject=subject, message=message, from_email=email, recipient_list=['mirolimcoder@gmail.com'], fail_silently=False)
+            # send_mail(subject=subject, message=message, from_email='usmanovsacademy@gmail.com', \
+            #     recipient_list=['mirolimcoder@gmail.com'])
+            messages.success(request, "Sizning xabaringiz yuborildi.E'tibor uchun rahmat.")
+            return redirect('contact')
+        except:
+            messages.error(request, "Habar Jo'natishda nimadur hato ketti")
     context = {
         'active_section': 'contact'
     }
     return render(request, 'contact.html', context)
+
+
+@login_required(login_url='login')
+def send_message(request, path):
+    user = request.user
+    if request.POST:
+        full_name = user.first_name + user.last_name
+        email = user.email
+        subject = "Sender: " + full_name + '|' + f'{email}'
+        message = request.POST.get('user_message')
+        try:
+            send_mail(subject=subject, message=message, from_email=email, recipient_list=['mirolimcoder@gmail.com'], fail_silently=False)
+            messages.success(request, "Sizning xabaringiz yuborildi.E'tibor uchun rahmat.")
+            
+        except:
+            messages.error(request, "Habar Jo'natishda nimadur hato ketti")
+    return redirect(path)

@@ -22,9 +22,21 @@
           <div class="col-lg-4 col-md-6 footer-newsletter">
             <h4>Savollaringiz yoki Takliflaringiz bo'lsa murojaat qiling!</h4>
             <p>Web saytga o'zgartirish kerak bo'lsa yoki chiroyliroq dizayningiz bo'lsa bemalol aytavering.</p>
-            <form action="" method="post">
-              <input type="text" name="text"> <a href="https://t.me/Nabijonov4544"><input type="submit" value="Yuborish"></a>
+            <form action="{% url 'send_message' path=active_section %}" method="post">
+                {% csrf_token %}
+                <input type="text" style="outline: none;" name="user_message">
+                <input type="submit" value="Yuborish">
+                
             </form>
+            {% if messages %}
+                  {% for message in messages %}
+                    {% if message.tags == 'error' %}
+                      <div class="error-message"><small style="color:red;"><p>{{message}}</p></small></div>
+                    {% elif message.tags == 'success' %}
+                      <div class="sent-message" style="color: green;">{{message}}</div>
+                    {% endif %}
+                  {% endfor %}
+                {% endif %}
           </div>
 
         </div>

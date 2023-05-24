@@ -31,6 +31,7 @@ class News(models.Model):
     def get_number_of_views(self):
         return self.viewers.count()
 
+
 class Oportunity(models.Model): #Faqat super user qo'shsin
     """Only Super user can add this"""
     class Meta:

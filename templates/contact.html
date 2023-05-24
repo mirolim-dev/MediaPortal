@@ -51,13 +51,14 @@
 
             <div class="col-lg-8 mt-5 mt-lg-0">
 
-              <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+              <form action="#" method="post" role="form">
+                {% csrf_token %}
                 <div class="row">
                   <div class="col-md-6 form-group">
-                    <input type="text" name="name" class="form-control" id="name" placeholder="Ismingiz" required>
+                    <input type="text" name="full_name" class="form-control" id="name" placeholder="Ismingiz va Familyangiz" required>
                   </div>
                   <div class="col-md-6 form-group mt-3 mt-md-0">
-                    <input type="email" class="form-control" name="email" id="email" placeholder="Familyangiz" required>
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Emailingiz" required>
                   </div>
                 </div>
                 <!--
@@ -68,11 +69,22 @@
                   <textarea class="form-control" name="message" rows="5" placeholder="Xat yoki Xabar" required></textarea>
                 </div>
                 <div class="my-3">
-                  <div class="loading">Yuborilmoqda...</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Sizning xabaringiz yuborildi.E'tibor uchun rahmat.</div>
+                  {% if messages %}
+                    {% for message in messages %}
+                      {% if message.tags == 'error' %}
+                        <div class="error-message"><small style="color:red;"><p>{{message}}</p></small></div>
+                      {% elif message.tags == 'success' %}
+                        <div class="sent-message" style="color: green;">{{message}}</div>
+                      {% endif %}
+                    {% endfor %}
+                    
+                  {% endif %}
+                    
+                 
                 </div>
-                <div class="text-center"><button type="submit">Yuborish...</button></div>
+                <div class="text-center">
+                  <button class="btn btn-primary"  style="background-color: #5fcf80; border:none;" type="submit">Yuborish...</button>
+                </div>
               </form>
 
             </div>

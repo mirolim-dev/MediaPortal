@@ -11,4 +11,6 @@ urlpatterns = [
     path('news/', news_view, name='news'),
     path('detail_news/<int:pk>/', detail_news, name='detail_news'),
     path('contact/', contact_view, name='contact'),
+    
+    path('send_message/<str:path>/', send_message, name='send_message'),
 ]
