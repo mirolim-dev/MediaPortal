@@ -124,12 +124,12 @@
                           <div class="course-item">
                             <img style="height: 237px;width: 800px" src="{{ member.image.url }}" class="img-fluid" alt="...">
                             <div class="course-content">
-                              <a href="#"><div class="d-flex justify-content-between align-items-center mb-3">
+                              <a href="{% url 'media_member_detail' pk=member.id %}"><div class="d-flex justify-content-between align-items-center mb-3">
                                 <h4>Batafsil Ko'rish</h4>
                                 <!-- <p class="price"> Oyiga  $16</p>-->
                               </div></a>
 
-                              <h3><a href="#">Guruh: {{ member.group }}</a></h3>
+                              <h3><a href="#">Guruh: {{ member.status }}</a></h3>
                               <p>{{ member.shortly_description }}</p>
                               <div class="trainer d-flex justify-content-between align-items-center">
                                 <div class="trainer-profile d-flex align-items-center">

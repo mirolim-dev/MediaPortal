@@ -4,7 +4,7 @@ from django.contrib.auth.models import User, Group
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404
 
-from .models import BestStudent
+from .models import BestStudent, MediaMembers
 from main.utils import get_nested_list_includes_triple_lists
 # Create your views here.
 
@@ -26,3 +26,10 @@ def student_detail_view(request, pk:int):
         'student': student,
         }
     return render(request, 'student_detail.html', context)
+
+
+@login_required(login_url='login')
+def media_member_detail_view(request, pk):
+    member = get_object_or_404(MediaMembers, id=pk)
+    context = {'member': member}
+    return render(request, 'media_member_detail.html', context)
