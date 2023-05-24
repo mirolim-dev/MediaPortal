@@ -1,7 +1,7 @@
 {% load static %}
 <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
-      <i style="font-size: 40px; color: #5fcf80;margin-bottom: 6px;margin-right: 5px" class=""></i> <h1 class="logo me-auto"><a href="index.html">Media Portal</a></h1>
+      <i style="font-size: 40px; color: #5fcf80;margin-bottom: 6px;margin-right: 5px" class=""></i> <h1 class="logo me-auto"><a href="{% url 'home' %}">Media Portal</a></h1>
            <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
           {% if active_section == 'home' %}
