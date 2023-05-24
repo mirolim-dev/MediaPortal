@@ -10,17 +10,20 @@ from django.shortcuts import get_object_or_404
 from .models import News, Project, Oportunity
 from .utils import get_nested_list_includes_triple_lists
 
+from students_and_tuiters.models import MediaMembers
 # Create your views here.
 @login_required(login_url='login')
 def home_view(request):
     """Bosh sahifa"""
     oportunities = Oportunity.objects.all()
+    media_members = MediaMembers.objects.all()
     if oportunities.count() > 4:
         oportunities = oportunities[-4:]
     
     context = {
         'active_section': 'home',
         'oportunities': oportunities,
+        'media_members': media_members,
     }
     return render(request, 'index.html', context)
 

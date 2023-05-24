@@ -74,9 +74,7 @@
                   <p>
                     Oliy ta’lim muassasasida talabalar bo’sh vaqtini unumli tashkil etish maqsadida ko’plab ma’naviy tadbirlar tashkil etilgan.
                   </p>
-                  <div class="text-center">
-                    <a href="about.html" class="more-btn">Batafsil o'qish <i class="bx bx-chevron-right"></i></a>
-                  </div>
+                  
                 </div>
               </div>
               <div class="col-lg-8 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
@@ -112,81 +110,31 @@
         <section id="popular-courses" class="courses">
           <div class="container" data-aos="fade-up">
             <div class="section-title">
-              <h2>Iqtidorli</h2>
-              <p>Iqtidorli Talabalar</p>
+              <h2>Media</h2>
+              <p>Media Bo'limi a'zolari</p>
             </div>
             <div class="row" data-aos="zoom-in" data-aos-delay="100">
+              {% for member in media_members %}
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                  <div class="course-item">
+                    <img  style="height: 237px;width: 800px" src="{{ member.image.url }}" class="img-fluid" alt="...">
+                    <div class="course-content">
+                      <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4>Batafsil Ko'rish</h4>
+                          </div>
+                      <h3>Status: {{ member.status }}</h3>
+                      <p>{{ member.shortly_description }}
 
-              <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-                <div class="course-item">
-                  <img  style="height: 237px;width: 800px" src="{% static 'images/loyixaa.png' %}" class="img-fluid" alt="...">
-                  <div class="course-content">
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                      <h4>Grafik Dizayner</h4>
+                      <div class="trainer d-flex justify-content-between align-items-center">
+                        <div class="trainer-profile d-flex align-items-center">
+                          <span>{{ member.first_name }} {{ member.last_name }}</span>
                         </div>
-                    <h3><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing.</a></h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, similique nesciunt. Doloremque
-                      laudantium ipsa excepturi! Ea odit, officia sint voluptatum quaerat voluptas.
 
-                      Telefon: <a href="tel:+998916947786">+998 93 044 45 44</a></p>
-                    <div class="trainer d-flex justify-content-between align-items-center">
-                      <div class="trainer-profile d-flex align-items-center">
-                        <img src="{% static 'images/dasturch2.jpg' %}" class="img-fluid" alt="">
-                        <span>Nabijonov Ravshanbek</span>
                       </div>
-
                     </div>
                   </div>
-                </div>
-              </div> <!-- End Course Item-->
-
-              <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
-                <div class="course-item">
-                  <img style="height: 237px;width: 800px" src="{% static 'images/loyixa2.png' %}" class="img-fluid" alt="...">
-                  <div class="course-content">
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                      <h4>Marketing</h4>
-                    <!-- <p class="price">  Oyiga $25</p>-->
-                    </div>
-
-                    <h3><a href="#">Lorem, ipsum dolor sit amet consectetur adipisicing.</a></h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime perferendis dolorem soluta aut amet ratione dicta ullam magni animi ipsa? Eius!
-
-                      <br>  Telefon: <a href="tel:+998913434534">+998 93 044 45 44</a></p>
-                    <div class="trainer d-flex justify-content-between align-items-center">
-                      <div class="trainer-profile d-flex align-items-center">
-                        <img src="{% static 'images/dasturch2.jpg' %}" class="img-fluid" alt="">
-                        <span> Xurshid</span>
-                      </div>
-
-                    </div>
-                  </div>
-                </div>
-              </div> <!-- End Course Item-->
-
-              <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
-                <div class="course-item">
-                  <img  style="height: 237px;width: 800px" src="{% static 'images/loyixa3.png' %}" class="img-fluid" alt="...">
-                  <div class="course-content">
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                      <h4>Developer</h4>
-                    <!--  <p class="price"> Oyiga $20</p>-->
-                    </div>
-
-                    <h3><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing.</a></h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, repudiandae? Ex maiores facilis saepe quasi alias doloremque
-                      <br> <br>
-                      Telefon: <a href="tel:+998936497926">+998 93 044 45 44</a></p>
-                    <div class="trainer d-flex justify-content-between align-items-center">
-                      <div class="trainer-profile d-flex align-items-center">
-                        <img src="dasturch2.jpg" class="img-fluid" alt="">
-                        <span>Abduvosid</span>
-                      </div>
-
-                    </div>
-                  </div>
-                </div>
-              </div> <!-- End Course Item-->
+                </div> <!-- End Course Item-->
+              {% endfor %}
 
             </div>
 
@@ -194,7 +142,7 @@
         </section><!-- End Popular Courses Section -->
 
         <!-- ======= Trainers Section ======= -->
-        <section id="trainers" class="trainers">
+        {% comment %} <section id="trainers" class="trainers">
           <div class="container" data-aos="fade-up">
 
             <div class="row" data-aos="zoom-in" data-aos-delay="100">
@@ -265,7 +213,7 @@
             </div>
 
           </div>
-        </section><!-- End Trainers Section -->
+        </section><!-- End Trainers Section --> {% endcomment %}
 
       </main><!-- End #main -->
     {% endblock content %}
