@@ -20,8 +20,8 @@
          
 
           <div class="col-lg-4 col-md-6 footer-newsletter">
-            <h4>Savollaringiz yoki Takliflaringiz bo'lsa murojaat qiling!</h4>
-            <p>Web saytga o'zgartirish kerak bo'lsa yoki chiroyliroq dizayningiz bo'lsa bemalol aytavering.</p>
+            <h4>Media Portal haqida fikringiz</h4>
+            <p>Biz haqimizda qandaydir fikr bildirishingiz va taklif yuborishingiz uchun</p>
             <form action="{% url 'send_message' path=active_section %}" method="post">
                 {% csrf_token %}
                 <input type="text" style="outline: none;" name="user_message">
