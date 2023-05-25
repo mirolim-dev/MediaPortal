@@ -59,6 +59,7 @@ def project_detail(request, pk:int):
     if user not in project.viewers.all():
         project.viewers.add(user)
     context = {
+        'active_section': 'None',
         'project': project,
     }
     return render(request, 'project_detail.html', context)
@@ -71,7 +72,7 @@ def oportunity_detail(request, pk):
     """
     oportunity = get_object_or_404(Oportunity, id=pk)
     context = {
-        'active_section': 'oportunity_detail',
+        'active_section': 'None',
         'oportunity': oportunity,
         }
     return render(request, 'oportunity_detail.html', context)
@@ -95,6 +96,7 @@ def detail_news(request, pk:int):
     if user not in news.viewers.all():
         news.viewers.add(user)
     context = {
+        'active_section': 'None',
         'news': news,
     }
     return render(request, 'news_detail.html', context)
@@ -124,6 +126,8 @@ def contact_view(request):
 
 @login_required(login_url='login')
 def send_message(request, path):
+    if path == 'None':
+        path = 'home'
     user = request.user
     if request.POST:
         full_name = user.first_name + user.last_name

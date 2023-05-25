@@ -82,22 +82,22 @@
                   <div class="row">
                     <div class="col-xl-4 d-flex align-items-stretch">
                       <div class="icon-box mt-4 mt-xl-0">
-                        <i class="bx bx-receipt"></i>
-                        <h4>Mutaxassislik fanlardan musobaqalar</h4>
+                        <i class='bx bxs-graduation'></i>
+                        <h4><a href="{% url 'oportunities' %}">Mutaxassislik fanlardan musobaqalar</a></h4>
                         <p>Axborot kommunikatsiya texnologiyalari sohasidan mutaxassislik fanlaridan talabalar ligasi.</p>
                       </div>
                     </div>
                     <div class="col-xl-4 d-flex align-items-stretch">
                       <div class="icon-box mt-4 mt-xl-0">
-                        <i class="bx bx-cube-alt"></i>
-                        <h4>Ma’naviy-ma’rifiy ishlar fikrlashni rivojlantirish uchun mantiqiy masalalar</h4>
+                        <i class='bx bxs-book'></i>
+                        <h4><a href="{% url 'news' %}">Ma’naviy-ma’rifiy ishlar fikrlashni rivojlantirish uchun mantiqiy masalalar</a></h4>
                         <p>Oliy ta’lim muassasasida talabalar bo’sh vaqtini unumli o’tkazish, ularning ma’naviy fikrlashini mustahkamlash maqsadida tashkil etilgan mantiqiy masalalar.</p>
                       </div>
                     </div>
                     <div class="col-xl-4 d-flex align-items-stretch">
                       <div class="icon-box mt-4 mt-xl-0">
-                        <i class="bx bx-images"></i>
-                        <h4>Dasturlash...</h4>
+                        <i class='bx bx-code-alt'></i>
+                        <h4><a href="{% url 'projects' %}">Dasturlash...</h4>
                         <p>Oliy ta’lim muassasasida talabalar o’rtasida dasturlash bo’yicha talabalar kubogini tashkil etish</p>
                       </div>
                     </div>
@@ -129,7 +129,7 @@
                                 <!-- <p class="price"> Oyiga  $16</p>-->
                               </div></a>
 
-                              <h3><a href="#">Guruh: {{ member.status }}</a></h3>
+                              <h3><a href="#">Vazifasi: {{ member.status }}</a></h3>
                               <p>{{ member.shortly_description }}</p>
                               <div class="trainer d-flex justify-content-between align-items-center">
                                 <div class="trainer-profile d-flex align-items-center">

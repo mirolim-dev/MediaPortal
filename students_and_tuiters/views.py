@@ -23,6 +23,7 @@ def best_students_view(request):
 def student_detail_view(request, pk:int):
     student = get_object_or_404(BestStudent, id=pk)
     context = {
+        'active_section': 'None',
         'student': student,
         }
     return render(request, 'student_detail.html', context)
@@ -31,5 +32,8 @@ def student_detail_view(request, pk:int):
 @login_required(login_url='login')
 def media_member_detail_view(request, pk):
     member = get_object_or_404(MediaMembers, id=pk)
-    context = {'member': member}
+    context = {
+        'active_section': 'None',
+        'member': member,
+        }
     return render(request, 'media_member_detail.html', context)
