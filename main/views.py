@@ -135,7 +135,7 @@ def send_message(request, path):
         subject = "Sender: " + full_name + '|' + f'{email}'
         message = request.POST.get('user_message')
         try:
-            send_mail(subject=subject, message=message, from_email=email, recipient_list=['mirolimcoder@gmail.com'], fail_silently=False)
+            send_mail(subject=subject, message=message, from_email=email, recipient_list=['rnabijonov19@gmail.com'], fail_silently=False)
             messages.success(request, "Sizning xabaringiz yuborildi.E'tibor uchun rahmat.")
             
         except:
