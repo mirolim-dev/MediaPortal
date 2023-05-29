@@ -37,7 +37,7 @@
                       <p>{{ project.shortly_description }}</p>
                       <small><b> Masul shaxs:</b> {{project.responsible_person}}</small>
                       <br><small><b>uploaded at:</b> {{project.created_at}}</small>
-                      <br><small><b>Views:</b> {{project.get_number_of_views}}</small>
+                      {% comment %} <br><small><b>Views:</b> {{project.get_number_of_views}}</small> {% endcomment %}
                     </div>
                   </div>
                 </div> <!-- End Course Item-->

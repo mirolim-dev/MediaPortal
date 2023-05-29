@@ -14,7 +14,7 @@ from .utils import get_nested_list_includes_triple_lists
 
 from students_and_tuiters.models import MediaMembers
 # Create your views here.
-@login_required(login_url='login')
+
 def home_view(request):
     """Bosh sahifa"""
     oportunities = Oportunity.objects.all()
@@ -30,7 +30,7 @@ def home_view(request):
     return render(request, 'index.html', context)
 
 
-@login_required(login_url='login')
+
 def oportunities_view(request):
     """Imkoniyatlar oynsi"""
     chances = Oportunity.objects.all()
@@ -41,7 +41,7 @@ def oportunities_view(request):
     return render(request, 'oportunities1.html', context)
 
 
-@login_required(login_url='login')
+
 def projects_view(request):
     """Loyihalar oynasi"""
     projects = Project.objects.all()    
@@ -52,12 +52,12 @@ def projects_view(request):
     return render(request, 'projects.html', context)
 
 
-@login_required(login_url='login')
+
 def project_detail(request, pk:int):
-    user = request.user
+    # user = request.user
     project = get_object_or_404(Project, id=pk)
-    if user not in project.viewers.all():
-        project.viewers.add(user)
+    # if user not in project.viewers.all():
+    #     project.viewers.add(user)
     context = {
         'active_section': 'None',
         'project': project,
@@ -65,7 +65,7 @@ def project_detail(request, pk:int):
     return render(request, 'project_detail.html', context)
 
 
-@login_required(login_url='login')
+
 def oportunity_detail(request, pk):
     """Imkoniyatlar haqida batafsil ko'rish
     pk = oportunity_id 
@@ -78,7 +78,7 @@ def oportunity_detail(request, pk):
     return render(request, 'oportunity_detail.html', context)
 
 
-@login_required(login_url='login')
+
 def news_view(request):
     """Yangiliklar oynasi"""
     news = News.objects.all().order_by('-created_at')
@@ -89,12 +89,10 @@ def news_view(request):
     return render(request, 'news.html', context)
 
 
-@login_required(login_url='login')
 def detail_news(request, pk:int):
-    user = request.user
     news = get_object_or_404(News, id=pk)
-    if user not in news.viewers.all():
-        news.viewers.add(user)
+    # if user not in news.viewers.all():
+    #     news.viewers.add(user)
     context = {
         'active_section': 'None',
         'news': news,
@@ -102,22 +100,25 @@ def detail_news(request, pk:int):
     return render(request, 'news_detail.html', context)
 
 
-@login_required(login_url='login')
+# @login_required(login_url='login')
 def contact_view(request):
     user = request.user
     if request.POST:
-        full_name = request.POST.get('full_name')
-        email = request.POST.get('email')
-        subject = "Sender: " + full_name + '|' + f'{email}'
-        message = request.POST.get('message')
-        try:
-            send_mail(subject=subject, message=message, from_email=email, recipient_list=['mirolimcoder@gmail.com'], fail_silently=False)
-            # send_mail(subject=subject, message=message, from_email='usmanovsacademy@gmail.com', \
-            #     recipient_list=['mirolimcoder@gmail.com'])
-            messages.success(request, "Sizning xabaringiz yuborildi.E'tibor uchun rahmat.")
-            return redirect('contact')
-        except:
-            messages.error(request, "Habar Jo'natishda nimadur hato ketti")
+        if user.is_authenticated:
+            full_name = request.POST.get('full_name')
+            email = request.POST.get('email')
+            subject = "Sender: " + full_name + '|' + f'{email}'
+            message = request.POST.get('message')
+            try:
+                send_mail(subject=subject, message=message, from_email=email, recipient_list=['rnabijonov19@gmail.com'], fail_silently=False)
+                # send_mail(subject=subject, message=message, from_email='usmanovsacademy@gmail.com', \
+                #     recipient_list=['mirolimcoder@gmail.com'])
+                messages.success(request, "Sizning xabaringiz yuborildi.E'tibor uchun rahmat.")
+                return redirect('contact')
+            except:
+                messages.error(request, "Habar Jo'natishda nimadur hato ketti")
+        else:
+            return redirect('login')
     context = {
         'active_section': 'contact'
     }
