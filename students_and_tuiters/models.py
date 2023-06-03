@@ -37,6 +37,7 @@ def manage_access(sender, instance, created, *args, **kwargs):
         except:
             pass
 
+
 class BestStudent(models.Model):
     class Meta:
         verbose_name = 'Iqtidorli Talaba'

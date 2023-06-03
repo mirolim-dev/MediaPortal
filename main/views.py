@@ -20,7 +20,8 @@ def home_view(request):
     oportunities = Oportunity.objects.all()
     media_members = MediaMembers.objects.all()
     if oportunities.count() > 4:
-        oportunities = oportunities[-4:]
+        numb = len(oportunities)-1
+        oportunities = oportunities[numb-3:]
     
     context = {
         'active_section': 'home',
